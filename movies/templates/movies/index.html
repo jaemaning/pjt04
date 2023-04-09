@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>index</h1>
+{% if user.is_authenticated %}
+<div class="text-end">
+    <a class="btn btn-primary" href="{% url 'movies:create' %}">글쓰러가기</a>
+</div>
+<hr>
+{% for movie in movies %}
+<a href="{% url 'movies:detail' movie.pk %}">{{movie.title}}</a>
+<p>{{movie.score}}</p>
+<hr>
+{% endfor %}
+{% else %}
+<div class="text-center">
+    <h2 class="">로그인을 해주세요.</h2>
+</div>
+{% endif %}
+
+
+
+{% endblock content %}

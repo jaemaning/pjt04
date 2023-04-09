@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load bootstrap5 %}
+<h1>정보수정</h1>
+<hr>
+<div class="w-50 mx-auto">
+    <form action="{% url 'accounts:update' %}" method="POST">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <div class="d-flex justify-content-between mb-5">
+            <input class="btn btn-info" type="submit" value="수정">
+            <a class="btn btn-dark" href="{% url 'movies:index' %}">목록으로</a>
+        </div>
+    </form>
+</div>
+{% endblock content %}

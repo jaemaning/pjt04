@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load bootstrap5 %}
+<h1>비밀번호 변경</h1>
+<hr>
+<div class="w-50 mx-auto">
+    <form action="{% url 'accounts:changepw' %}" method="POST">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <div class="d-flex justify-content-between mb-5">
+            <input class="btn btn-primary" type="submit" value="비밀번호 변경">
+            <a class="btn btn-dark" href="{% url 'accounts:update' %}">뒤로 돌아가기</a>
+        </div>
+    </form>
+</div>
+{% endblock content %}
